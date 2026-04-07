@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0f0f1a;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(20, 20, 40, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #6a5cff, #00d4ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.btn-nav {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #6a5cff, #00d4ff);
+  color: white;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: radial-gradient(circle at top, #1f1f3a, #0f0f1a);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #6a5cff, #00d4ff);
+  cursor: pointer;
+  color: white;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 60px 50px;
+}
+
+.card {
+  background: #1a1a2e;
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0,212,255,0.2), transparent);
+  top: -50%;
+  left: -50%;
+  transform: rotate(25deg);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #141428;
+  margin-top: 50px;
+  opacity: 0.7;
+}
+
+/* TEAM SECTION */
+.team {
+  text-align: center;
+  padding: 80px 50px;
+}
+
+.team h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.team-sub {
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+
+.team-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid rgba(0, 212, 255, 0.5);
+}
+
+
+.team-card span {
+  font-size: 0.9rem;
+  color: #00d4ff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.team-card p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.team-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 
+    0 0 20px rgba(0,212,255,0.4),
+    0 0 40px rgba(106,92,255,0.3);
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.team-card h3 {
+  background: linear-gradient(45deg, #6a5cff, #00d4ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.team-card p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 18px;
+}
+
+.team-card p span {
+  background: rgba(0,212,255,0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+/* SPLASH */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#matrix {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* TEXT */
+.title, .description {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid currentColor;
+}
+
+/* TITLE */
+.title {
+  top: 45%;
+  color: #00b3ff;
+  font-size: 22px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #00b3ff;
+
+  width: 0;
+  overflow: hidden;
+  border-right: 2px solid #00b3ff;
+
+  animation: 
+    typingTitle 1s steps(14, end) forwards,
+    blink 0.7s infinite,
+    stopBlink 0s forwards;
+  animation-delay: 0s, 0s, 1s;
+}
+
+/* ANIMATION */
+@keyframes typingTitle {
+  from { width: 0 }
+  to { width: 20ch }
+}
+
+@keyframes blink { 50% { border-color: transparent } }
+
+@keyframes stopBlink {
+  to { border-right: none; }
+}
