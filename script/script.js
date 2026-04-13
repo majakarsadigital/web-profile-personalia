@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       document.getElementById("splash").style.display = "none";
       clearInterval(interval);
-    }, 200);
+    }, 400);
 
-  }, 800); // durasi splash
+  }, 1000); // durasi splash
 });
