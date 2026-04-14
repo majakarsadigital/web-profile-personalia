@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Pemilihan Ketua OSIS 2026",
+        "description": "Pemilihan ketua OSIS periode baru.",
+        "start": "2026-04-10",
+        "end": "2026-04-20",
+        "status": "past",
+        "winners": [
+            {
+                "name": "Andi",
+                "votes": 120
+            },
+            {
+                "name": "Budi",
+                "votes": 95
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Pemilihan Ketua OSIS 2026",
+        "description": "Pemilihan ketua OSIS periode baru.",
+        "start": "2026-04-10",
+        "end": "2026-04-20",
+        "status": "past",
+        "winners": [
+            {
+                "name": "Andi",
+                "votes": 120
+            },
+            {
+                "name": "Budi",
+                "votes": 95
+            }
+        ]
+    }
+]
