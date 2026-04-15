@@ -320,3 +320,26 @@ if (document.readyState === 'loading') {
 } else {
   initializeCards();
 }
+
+
+
+const links = document.querySelectorAll(".nav-link");
+
+// Ambil path terakhir
+let currentPage = window.location.pathname.split("/").pop();
+
+// Kalau kosong, anggap index
+if (currentPage === "") {
+  currentPage = "index.html";
+}
+
+links.forEach(link => {
+  let linkPage = link.getAttribute("href");
+
+  // Hilangkan slash jika ada
+  linkPage = linkPage.replace("/", "");
+
+  if (currentPage === linkPage) {
+    link.classList.add("active");
+  }
+});

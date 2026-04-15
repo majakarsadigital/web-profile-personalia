@@ -267,6 +267,30 @@ body {
   animation-delay: 0s, 0s, 1s;
 }
 
+.nav-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  color: #00ffff;
+  font-weight: bold;
+  border-bottom: 2px solid #00ffff;
+
+  /* Glow effect */
+  text-shadow: 
+    0 0 10px #00ffff;
+}
+
+/* Optional: efek hover juga glow ringan */
+.nav-link:hover {
+  color: #00ffff;
+  text-shadow: 
+    0 0 5px #00ffff,
+    0 0 10px #00ffff;
+}
+
 /* ANIMATION */
 @keyframes typingTitle {
   from { width: 0 }
