@@ -99,3 +99,21 @@ links.forEach(link => {
     link.classList.add("active");
   }
 });
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navLinks");
+const navbar = document.querySelector(".navbar");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+  toggle.classList.toggle("active");
+  navbar.classList.toggle("active");
+});
+
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+    toggle.classList.remove("active");
+    navbar.classList.remove("active");
+  });
+});
