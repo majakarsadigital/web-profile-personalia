@@ -99,10 +99,3 @@ links.forEach(link => {
     link.classList.add("active");
   }
 });
-
-
-console.log("Current:", currentPage);
-
-links.forEach(link => {
-  console.log("Link:", link.getAttribute("href"));
-});
