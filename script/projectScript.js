@@ -35,7 +35,7 @@ const sampleProjects = [
     type: "web",
     start_date: "2025-01-01T00:00:00Z",
     end_date: "2025-02-01T23:59:59Z",
-    description: "Projek ini saya buat untuk memudahkan sekolah dalam menghadapi pencatatan tabungan siswa secara open-source/gratis, dengan. Fitur - fitur : <br> Admin : <br> Mengelola tabungan Update user(Admin, Wali kelas, dan Siswa) Input pembayaran & penarikan View riwayat transaksi Cetak Struk <br> Wali Kelas : <br> Melihat isi saldo dan melihat jumlah siswa yang menabung <br> Siswa : <br> Melihat isi saldo dan riwayat transaksi apabila melakukan transaksi.",
+    description: "Projek ini saya buat untuk memudahkan sekolah dalam menghadapi pencatatan tabungan siswa secara open-source/gratis, dengan. <br> Fitur - fitur : <br> Admin : <br> Mengelola tabungan Update user(Admin, Wali kelas, dan Siswa) Input pembayaran & penarikan View riwayat transaksi Cetak Struk <br> Wali Kelas : <br> Melihat isi saldo dan melihat jumlah siswa yang menabung <br> Siswa : <br> Melihat isi saldo dan riwayat transaksi apabila melakukan transaksi.",
     image: "https://raw.githubusercontent.com/NovriDev/tabungan-siswa-laravel/refs/heads/main/screenshots/desain-layout.jpg",
     status: "completed",
     team: [
@@ -54,6 +54,22 @@ const sampleProjects = [
     status: "completed",
     team: [
       { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
+    ]
+  },
+  {
+    id: 5,
+    title: "BeeLi",
+    slug: "Marketplace App",
+    type: "fullstack",
+    start_date: "2024-02-01T00:00:00Z",
+    end_date: "2024-06-01T23:59:59Z",
+    description: "BeeLi adalah projek aplikasi kami duplikasi dari OLX, yang berfungsi bagi para pengguna untuk melihat isi dari promosi – promosi informasi, jasa, produk, DLL.",
+    image: "https://raw.githubusercontent.com/dhika-desk16/app-olx-duplicate/refs/heads/master/preview.png",
+    status: "completed",
+    team: [
+      { id: 1, name: "Dhika Karya Prasetya", role: "BackEnd", avatar: "assets/img/person_dhik.png" },
+      { id: 2, name: "NovriMulia Sourimuda Nasution", role: "FrontEnd", avatar: "assets/img/person_nov.png" },
+      { id: 3, name: "Nabil Faruq Shalahuddin", role: "FrontEnd", avatar: "assets/img/person_nab.png" },
     ]
   }
 ];
@@ -218,8 +234,11 @@ function renderProjectCard(project) {
                 </div>
 
                 ${project.description ? `
-                    <p class="event-description">${project.description}</p>
-                ` : ''}
+                  <div class="event-description-wrapper">
+                      <p class="event-description">${project.description}</p>
+                      <span class="read-more" style="display: none;">Baca selengkapnya...</span>
+                  </div>
+              ` : ''}
 
                 ${teamSection}
 
@@ -310,8 +329,10 @@ document.addEventListener('DOMContentLoaded', initializeCards);
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeCards);
+  document.addEventListener('DOMContentLoaded', initReadMore);
 } else {
   initializeCards();
+  initReadMore();
 }
 
 
@@ -355,3 +376,25 @@ links.forEach(link => {
     navbar.classList.remove("active");
   });
 });
+
+
+// Trigger function 'Baca selengkapnya...'
+function initReadMore() {
+  document.querySelectorAll('.event-description').forEach(desc => {
+    const readMore = desc.parentElement.querySelector('.read-more');
+
+    if (!readMore) return;
+
+    if (desc.scrollHeight > desc.clientHeight) {
+      readMore.style.display = 'inline';
+
+      readMore.addEventListener('click', () => {
+        desc.classList.toggle('expanded');
+
+        readMore.textContent = desc.classList.contains('expanded')
+          ? 'Tutup'
+          : 'Baca selengkapnya...';
+      });
+    }
+  });
+}
