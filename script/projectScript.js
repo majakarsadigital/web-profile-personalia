@@ -1,66 +1,75 @@
 const sampleProjects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "The Sobat Gapai",
     slug: "ecommerce-platform",
     type: "fullstack",
-    start_date: "2024-01-15T00:00:00Z",
-    end_date: "2024-03-31T23:59:59Z",
-    description: "Platform e-commerce lengkap dengan fitur katalog produk, keranjang belanja, pembayaran, dan dashboard admin untuk mengelola produk dan pesanan.",
-    image: "https://i.ytimg.com/vi/apn6JrbSMCg/maxresdefault.jpg",
+    start_date: "2025-01-01T00:00:00Z",
+    end_date: "2025-02-01T23:59:59Z",
+    description: 'The Solusi Bantuan Tugas Gali Prestasi adalah projek yang dimana bertemakan platform digital pendidikan, seperti halnya forum "The Sobat Gapai" ini sama halnya dengan aplikasi-aplikasi forum pendidikan lainnya namun mungkin ada yang berbeda.',
+    image: "https://raw.githubusercontent.com/NovriDev/Proyek-The-Sobat-Gapai/refs/heads/android/image/preview.png",
     status: "completed",
     team: [
-      { id: 1, name: "Nabil Faaruq", role: "Backend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 2, name: "Nabil Santoso", role: "Frontend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 3, name: "Nabil Henggar", role: "UI/UX Designer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" }
+      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
     ]
   },
   {
     id: 2,
-    title: "Mobile Travel App",
-    slug: "mobile-travel-app",
+    title: "Chatting Bot (ChatLogic)",
+    slug: "mobile-app",
     type: "mobile",
     start_date: "2024-02-01T00:00:00Z",
     end_date: "2024-05-15T23:59:59Z",
-    description: "Aplikasi mobile untuk booking perjalanan dengan fitur pencarian destinasi, pemesanan tiket, dan manajemen itinerary yang intuitif.",
-    image: "https://images.unsplash.com/photo-1512941691920-25bda36ae95e?w=400&h=250&fit=crop",
-    status: "in_progress",
+    description: "Aplikasi mobile untuk Sistem chatbot ringan dengan respon otomatis berdasarkan logika.",
+    image: "https://raw.githubusercontent.com/NovriDev/chatbot_MJKDISOFT/refs/heads/master/app/src/main/ic_launcher-playstore.png",
+    status: "completed",
     team: [
-      { id: 1, name: "Nabil Faaruq", role: "Backend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 2, name: "Nabil Santoso", role: "Frontend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 3, name: "Nabil Henggar", role: "UI/UX Designer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" }
+      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
+      { id: 2, name: "Rizky Bagus Firmansyah", role: "Frontend Developer & UI UX", avatar: "assets/img/person_riz.png" },
     ]
   },
   {
     id: 3,
-    title: "Analytics Dashboard",
+    title: "Website Tabungan Siswa",
     slug: "analytics-dashboard",
     type: "web",
-    start_date: "2024-03-01T00:00:00Z",
-    end_date: "2024-06-30T23:59:59Z",
-    description: "Dashboard analytics real-time untuk visualisasi data dengan charts, filters, dan export functionality untuk reporting yang komprehensif.",
-    image: "https://i.ytimg.com/vi/apn6JrbSMCg/maxresdefault.jpg",
-    status: "in_progress",
+    start_date: "2025-01-01T00:00:00Z",
+    end_date: "2025-02-01T23:59:59Z",
+    description: "Projek ini saya buat untuk memudahkan sekolah dalam menghadapi pencatatan tabungan siswa secara open-source/gratis, dengan. <br> Fitur - fitur : <br> Admin : <br> Mengelola tabungan Update user(Admin, Wali kelas, dan Siswa) Input pembayaran & penarikan View riwayat transaksi Cetak Struk <br> Wali Kelas : <br> Melihat isi saldo dan melihat jumlah siswa yang menabung <br> Siswa : <br> Melihat isi saldo dan riwayat transaksi apabila melakukan transaksi.",
+    image: "https://raw.githubusercontent.com/NovriDev/tabungan-siswa-laravel/refs/heads/main/screenshots/desain-layout.jpg",
+    status: "completed",
     team: [
-      { id: 1, name: "Nabil Faaruq", role: "Backend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 2, name: "Nabil Santoso", role: "Frontend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 3, name: "Nabil Henggar", role: "UI/UX Designer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" }
+      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
     ]
   },
   {
     id: 4,
-    title: "Social Media Platform",
-    slug: "social-media-platform",
+    title: "KasirKu POS",
+    slug: "POS App",
     type: "fullstack",
-    start_date: "2024-04-01T00:00:00Z",
-    end_date: "2024-08-31T23:59:59Z",
-    description: "Platform media sosial dengan fitur posting, comments, likes, user profiles, dan real-time notifications untuk engagement maksimal.",
-    image: "https://i.ytimg.com/vi/apn6JrbSMCg/maxresdefault.jpg",
-    status: "upcoming",
+    start_date: "2025-06-01T00:00:00Z",
+    end_date: "2025-07-01T23:59:59Z",
+    description: "KasirKu adalah aplikasi kasir berbasis Android yang terintegrasi dengan backend Laravel. Dirancang untuk membantu UMKM dalam mengelola transaksi, produk, dan pelanggan. <br> <br> Fitur Utama : <br> ✅ Manajemen Produk (Tambah, Edit, Hapus) <br> ✅ Transaksi & Pembayaran <br> ✅ Riwayat Pembelian Pelanggan <br> ✅ Otentikasi dengan Token (Bearer Token) <br> ✅ Dashboard & Ringkasan Data.",
+    image: "https://github.com/NovriDev/KasirKu-POS/blob/main/layout(wireframe).png?raw=true",
+    status: "completed",
     team: [
-      { id: 1, name: "Nabil Faaruq", role: "Backend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 2, name: "Nabil Santoso", role: "Frontend Developer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
-      { id: 3, name: "Nabil Henggar", role: "UI/UX Designer", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" }
+      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
+    ]
+  },
+  {
+    id: 5,
+    title: "BeeLi",
+    slug: "Marketplace App",
+    type: "fullstack",
+    start_date: "2024-02-01T00:00:00Z",
+    end_date: "2024-06-01T23:59:59Z",
+    description: "BeeLi adalah projek aplikasi kami duplikasi dari OLX, yang berfungsi bagi para pengguna untuk melihat isi dari promosi – promosi informasi, jasa, produk, DLL.",
+    image: "https://raw.githubusercontent.com/dhika-desk16/app-olx-duplicate/refs/heads/master/preview.png",
+    status: "completed",
+    team: [
+      { id: 1, name: "Dhika Karya Prasetya", role: "BackEnd", avatar: "assets/img/person_dhik.png" },
+      { id: 2, name: "NovriMulia Sourimuda Nasution", role: "FrontEnd", avatar: "assets/img/person_nov.png" },
+      { id: 3, name: "Nabil Faruq Shalahuddin", role: "FrontEnd", avatar: "assets/img/person_nab.png" },
     ]
   }
 ];
@@ -225,8 +234,11 @@ function renderProjectCard(project) {
                 </div>
 
                 ${project.description ? `
-                    <p class="event-description">${project.description}</p>
-                ` : ''}
+                  <div class="event-description-wrapper">
+                      <p class="event-description">${project.description}</p>
+                      <span class="read-more" style="display: none;">Baca selengkapnya...</span>
+                  </div>
+              ` : ''}
 
                 ${teamSection}
 
@@ -317,6 +329,72 @@ document.addEventListener('DOMContentLoaded', initializeCards);
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeCards);
+  document.addEventListener('DOMContentLoaded', initReadMore);
 } else {
   initializeCards();
+  initReadMore();
+}
+
+
+
+const links = document.querySelectorAll(".nav-link");
+
+// Ambil path terakhir
+let currentPage = window.location.pathname.split("/").pop();
+
+// Kalau kosong, anggap index
+if (currentPage === "") {
+  currentPage = "index.html";
+}
+
+links.forEach(link => {
+  let linkPage = link.getAttribute("href");
+
+  // Hilangkan slash jika ada
+  linkPage = linkPage.replace("/", "");
+
+  if (currentPage === linkPage) {
+    link.classList.add("active");
+  }
+});
+
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navLinks");
+const navbar = document.querySelector(".navbar");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+  toggle.classList.toggle("active");
+  navbar.classList.toggle("active");
+});
+
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+    toggle.classList.remove("active");
+    navbar.classList.remove("active");
+  });
+});
+
+
+// Trigger function 'Baca selengkapnya...'
+function initReadMore() {
+  document.querySelectorAll('.event-description').forEach(desc => {
+    const readMore = desc.parentElement.querySelector('.read-more');
+
+    if (!readMore) return;
+
+    if (desc.scrollHeight > desc.clientHeight) {
+      readMore.style.display = 'inline';
+
+      readMore.addEventListener('click', () => {
+        desc.classList.toggle('expanded');
+
+        readMore.textContent = desc.classList.contains('expanded')
+          ? 'Tutup'
+          : 'Baca selengkapnya...';
+      });
+    }
+  });
 }

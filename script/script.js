@@ -1,3 +1,30 @@
+const splash = document.getElementById("splash");
+const mainContent = document.getElementById("main-content");
+
+// cek apakah sudah pernah tampil
+const hasVisited = sessionStorage.getItem("hasVisited");
+
+if (hasVisited) {
+  splash.style.display = "none";
+  mainContent.style.opacity = "1";
+} else {
+  sessionStorage.setItem("hasVisited", "true");
+
+  // jalankan splash seperti biasa
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      splash.style.opacity = "0";
+      mainContent.style.opacity = "1";
+
+      setTimeout(() => {
+        splash.style.display = "none";
+        clearInterval(interval);
+      }, 400);
+
+    }, 1000);
+  });
+}
+
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -52,4 +79,41 @@ window.addEventListener("load", () => {
     }, 400);
 
   }, 1000); // durasi splash
+});
+
+const links = document.querySelectorAll(".nav-link");
+
+let currentPage = window.location.pathname.split("/").pop();
+
+if (currentPage === "") {
+  currentPage = "index.html";
+}
+
+links.forEach(link => {
+  let linkPage = link.getAttribute("href");
+
+  // Hilangkan slash jika ada
+  linkPage = linkPage.replace("/", "");
+
+  if (currentPage === linkPage) {
+    link.classList.add("active");
+  }
+});
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navLinks");
+const navbar = document.querySelector(".navbar");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+  toggle.classList.toggle("active");
+  navbar.classList.toggle("active");
+});
+
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+    toggle.classList.remove("active");
+    navbar.classList.remove("active");
+  });
 });

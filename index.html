@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Majakarsadigital</title>
   <link rel="stylesheet" href="assets/style/style.css">
 </head>
@@ -17,23 +18,44 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">Majakarsadigital</div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="project.html" class="nav-link">Portfolio / Proyek</a></li>
     </ul>
-    <button class="btn-nav">Consult Now</button>
+
+    <a href="https://wa.me/628135382932?text=Halo%2C%20saya%20ingin%20konsultasi%20terkait%20solusi%20IT%20untuk%20project%20saya.%20Mohon%20arahannya%20terkait%20pengembangan%20aplikasi." target="_blank"><button class="btn-nav">Konsultasi Sekarang</button></a>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
+
 
   <!-- HERO -->
   <section class="hero">
     <h1>Solusi Digital untuk Bisnis Anda.</h1>
     <p>Kami membantu transformasi digital melalui pengembangan software, website, dan konsultasi IT</p>
-    <button class="btn">Mulai Konsultasi</button>
+    <a href="https://wa.me/628135382932?text=Halo%2C%20saya%20ingin%20konsultasi%20terkait%20solusi%20IT%20untuk%20project%20saya.%20Mohon%20arahannya%20terkait%20pengembangan%20aplikasi." target="_blank"><button class="btn">Mulai Konsultasi</button></a>
   </section>
 
-  <section class="team">
+  <section class="team" id="team">
+    <a href="#team" class="scroll-cue team-cue" aria-label="Scroll to team section">
+       <span class="scroll-cue-arrow" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="scroll-cue-text">Lihat Tim</span>
+      <span class="scroll-cue-arrow" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
     <h2>Meet Our Team</h2>
     <p class="team-sub">Tim profesional yang siap membantu transformasi digital Anda</p>
 
@@ -95,7 +117,7 @@
         </div>
 
         <div class="team-card">
-          <img src="https://via.placeholder.com/150" alt="team">
+          <img src="assets/img/person_riz.png" alt="team">
           <h3>Rizky Bagus Firmansyah</h3>
           <span>Designer & UI/UX</span>
           <p>
@@ -143,8 +165,8 @@
   <footer class="footer">
     <p>© 2026 Majakarsadigital. All rights reserved.</p>
   </footer>
-
+  
+  <script src="script/script.js"></script>
 </body>
 </div>
-<script src="script/script.js"></script>
 </html>
