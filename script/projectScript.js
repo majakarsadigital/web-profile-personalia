@@ -15,21 +15,6 @@ const sampleProjects = [
   },
   {
     id: 2,
-    title: "Chatting Bot (ChatLogic)",
-    slug: "mobile-app",
-    type: "mobile",
-    start_date: "2024-02-01T00:00:00Z",
-    end_date: "2024-05-15T23:59:59Z",
-    description: "Aplikasi mobile untuk Sistem chatbot ringan dengan respon otomatis berdasarkan logika.",
-    image: "https://raw.githubusercontent.com/NovriDev/chatbot_MJKDISOFT/refs/heads/master/app/src/main/ic_launcher-playstore.png",
-    status: "completed",
-    team: [
-      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
-      { id: 2, name: "Rizky Bagus Firmansyah", role: "Frontend Developer & UI UX", avatar: "assets/img/person_riz.png" },
-    ]
-  },
-  {
-    id: 3,
     title: "Website Tabungan Siswa",
     slug: "analytics-dashboard",
     type: "web",
@@ -43,7 +28,7 @@ const sampleProjects = [
     ]
   },
   {
-    id: 4,
+    id: 3,
     title: "KasirKu POS",
     slug: "POS App",
     type: "fullstack",
@@ -57,7 +42,7 @@ const sampleProjects = [
     ]
   },
   {
-    id: 5,
+    id: 4,
     title: "BeeLi",
     slug: "Marketplace App",
     type: "fullstack",
@@ -71,7 +56,50 @@ const sampleProjects = [
       { id: 2, name: "NovriMulia Sourimuda Nasution", role: "FrontEnd", avatar: "assets/img/person_nov.png" },
       { id: 3, name: "Nabil Faruq Shalahuddin", role: "FrontEnd", avatar: "assets/img/person_nab.png" },
     ]
-  }
+  },
+  {
+    id: 5,
+    title: "StayQu",
+    slug: "property-marketplace-website",
+    type: "fullstack",
+    start_date: "2025-03-01T00:00:00Z",
+    end_date: "2026-08-31T23:59:59Z",
+    description: "Platform marketplace properti yang menyediakan berbagai pilihan rumah, apartemen, dan kontrakan dari berbagai lokasi di Indonesia. Pengguna dapat dengan mudah mencari, membandingkan, dan menemukan properti sesuai kebutuhan melalui fitur pencarian yang canggih dan informasi yang lengkap serta terpercaya.",
+    image: "assets/img/stayqu.png",
+    status: "ongoing",
+    team: [
+      { id: 1, name: "Dhika Karya Prasetya", role: "BackEnd", avatar: "assets/img/person_dhik.png" },
+    ]
+  },
+  {
+    id: 6,
+    title: "GameJams",
+    slug: "game-marketplace-website",
+    type: "fullstack",
+    start_date: "2025-03-01T00:00:00Z",
+    end_date: "2025-06-01T23:59:59Z",
+    description: "GameJams adalah platform marketplace game modern yang dirancang untuk menghubungkan developer dan pemain dalam satu ekosistem yang terintegrasi. Pengguna dapat menjelajahi, menemukan, dan membeli berbagai jenis game, sementara developer dapat mempublikasikan karya mereka, mengelola listing, serta menjangkau audiens yang lebih luas. Dengan tampilan yang bersih dan navigasi yang intuitif, GameJams menghadirkan pengalaman yang efisien dan nyaman bagi pembeli maupun kreator.",
+    image: "assets/img/games.png",
+    status: "completed",
+    team: [
+      { id: 1, name: "Dhika Karya Prasetya", role: "BackEnd", avatar: "assets/img/person_dhik.png" },
+    ]
+  },
+  {
+    id: 7,
+    title: "Chatting Bot (ChatLogic)",
+    slug: "mobile-app",
+    type: "mobile",
+    start_date: "2024-02-01T00:00:00Z",
+    end_date: "2024-05-15T23:59:59Z",
+    description: "Chatting Bot (ChatLogic) adalah aplikasi mobile yang dirancang sebagai sistem chatbot ringan dengan kemampuan memberikan respons otomatis berdasarkan logika yang telah ditentukan. Aplikasi ini memungkinkan pengguna untuk berinteraksi secara real-time dengan bot melalui antarmuka yang sederhana dan intuitif.",
+    image: "https://raw.githubusercontent.com/NovriDev/chatbot_MJKDISOFT/refs/heads/master/app/src/main/ic_launcher-playstore.png",
+    status: "completed",
+    team: [
+      { id: 1, name: "NovriMulia Sourimuda Nasution", role: "FullStack", avatar: "assets/img/person_nov.png" },
+      { id: 2, name: "Rizky Bagus Firmansyah", role: "Frontend Developer & UI UX", avatar: "assets/img/person_riz.png" },
+    ]
+  },
 ];
 
 const icons = {
@@ -125,7 +153,7 @@ function doesTextOverflow(text, maxWidth = 320) {
   const width = tempDiv.offsetWidth;
   document.body.removeChild(tempDiv);
 
-  return width > (maxWidth - 40); 
+  return width > (maxWidth - 40);
 }
 
 function renderProjectCard(project) {
@@ -137,7 +165,7 @@ function renderProjectCard(project) {
       pulse: false,
       icon: icons.code
     },
-    in_progress: {
+    ongoing: {
       class: 'status-badge ongoing',
       label: 'Berlangsung',
       pulse: true,
@@ -211,7 +239,8 @@ function renderProjectCard(project) {
 
             ${project.image ? `
                 <div class="card-image-wrapper">
-                    <img src="${project.image}" alt="${project.title}" class="card-image" loading="lazy">
+                  <img src="${project.image}" class="card-image-bg" alt="" />
+                  <img src="${project.image}" alt="${project.title}" class="card-image" loading="lazy">
                 </div>
             ` : ''}
             
@@ -234,11 +263,15 @@ function renderProjectCard(project) {
                 </div>
 
                 ${project.description ? `
-                  <div class="event-description-wrapper">
-                      <p class="event-description">${project.description}</p>
-                      <span class="read-more" style="display: none;">Baca selengkapnya...</span>
+                 <div class="event-description-wrapper">
+                    <p class="event-description" id="desc-${project.id}">
+                        ${project.description}
+                    </p>
+                    <button class="read-more-btn" data-target="desc-${project.id}">
+                        Baca selengkapnya
+                    </button>
                   </div>
-              ` : ''}
+                   ` : ''}
 
                 ${teamSection}
 
@@ -319,6 +352,26 @@ function handleResponsive() {
   });
 }
 
+function checkClamp() {
+  document.querySelectorAll('.event-description').forEach(desc => {
+    const btn = desc.parentElement.querySelector('.read-more-btn');
+
+    if (!btn) return;
+
+    // Cek apakah konten overflow
+    const isClamped = desc.scrollHeight > desc.clientHeight;
+
+    if (isClamped) {
+      btn.style.display = 'inline';
+    } else {
+      btn.style.display = 'none';
+    }
+  });
+}
+
+window.addEventListener('load', checkClamp);
+window.addEventListener('resize', checkClamp);
+
 let resizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -329,12 +382,23 @@ document.addEventListener('DOMContentLoaded', initializeCards);
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeCards);
-  document.addEventListener('DOMContentLoaded', initReadMore);
 } else {
   initializeCards();
-  initReadMore();
 }
 
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("read-more-btn")) {
+    const targetId = e.target.getAttribute("data-target");
+    const desc = document.getElementById(targetId);
+
+    const isExpanded = desc.classList.toggle("expanded");
+
+    e.target.textContent = isExpanded
+      ? "Tutup"
+      : "Baca selengkapnya";
+  }
+});
 
 
 const links = document.querySelectorAll(".nav-link");
@@ -377,24 +441,3 @@ links.forEach(link => {
   });
 });
 
-
-// Trigger function 'Baca selengkapnya...'
-function initReadMore() {
-  document.querySelectorAll('.event-description').forEach(desc => {
-    const readMore = desc.parentElement.querySelector('.read-more');
-
-    if (!readMore) return;
-
-    if (desc.scrollHeight > desc.clientHeight) {
-      readMore.style.display = 'inline';
-
-      readMore.addEventListener('click', () => {
-        desc.classList.toggle('expanded');
-
-        readMore.textContent = desc.classList.contains('expanded')
-          ? 'Tutup'
-          : 'Baca selengkapnya...';
-      });
-    }
-  });
-}
