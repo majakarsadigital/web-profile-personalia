@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://majakarsadigital.github.io/web-profile-personalia/sitemap.xml
