@@ -607,22 +607,137 @@ body {
   font-size: 0.75rem;
 }
 
-/* SPLASH */
-#splash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 9999;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  background: #0a0e1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   overflow: hidden;
 }
 
-#matrix {
+/* ── Circle ── */
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.water-clip {
   position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.water-inner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+}
+
+.wave-svg {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: -26px;
+  left: 0;
+  pointer-events: none;
+}
+
+.water-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: #2196f3;
+}
+
+/* ── Bubbles ── */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  bottom: 4px;
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) scale(1); opacity: 0.5; }
+  80%  { opacity: 0.2; }
+  100% { transform: translateY(-220px) scale(0.4); opacity: 0; }
+}
+
+/* ── Outer ring ── */
+.ring-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ── Logo overlay ── */
+.logo-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  pointer-events: none;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 100px;
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 13px;
+  font-weight: 600;
+  font-weight: bold;
+  background: linear-gradient(45deg, #6a5cff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Percent label ── */
+.pct-label {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.05em;
+  z-index: 5;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ── Status text ── */
+.status-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
 }
 
 /* TEXT */

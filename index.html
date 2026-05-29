@@ -12,12 +12,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-    <div id="splash">
-        <div class="title">MAJAKARSADIGITAL</div>
-        <canvas id="matrix"></canvas>
-    </div>
+  <div class="loader-wrapper" id="splash">
+    <div class="circle-container">
 
-    <div id="main-content">
+        <!-- Water fill -->
+        <div class="water-clip">
+          <div class="water-inner" id="waterInner">
+            <svg class="wave-svg" id="waveSvg" viewBox="0 0 200 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path id="wavePath" d="M0,15 Q25,0 50,15 T100,15 T150,15 T200,15 L200,30 L0,30 Z" fill="#2196f3"/>
+            </svg>
+            <div class="water-body" id="waterBody"></div>
+            <!-- Bubbles -->
+            <div class="bubble" style="width:6px;height:6px;left:30px;animation-duration:2.0s;animation-delay:0.2s;"></div>
+            <div class="bubble" style="width:4px;height:4px;left:80px;animation-duration:1.6s;animation-delay:0.8s;"></div>
+            <div class="bubble" style="width:8px;height:8px;left:140px;animation-duration:2.3s;animation-delay:0.0s;"></div>
+            <div class="bubble" style="width:5px;height:5px;left:60px;animation-duration:1.8s;animation-delay:1.3s;"></div>
+            <div class="bubble" style="width:7px;height:7px;left:110px;animation-duration:2.1s;animation-delay:0.5s;"></div>
+          </div>
+        </div>
+
+        <!-- Ring border -->
+        <svg class="ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="96" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+        </svg>
+
+        <!-- Logo di tengah -->
+        <div class="logo-wrap">
+          <img class="logo-icon" src="assets/img/logo_majakarsa.png" alt="Logo">
+          <span class="logo-text">MAJAKARSADIGITAL</span>
+        </div>
+
+        <!-- Persentase -->
+        <div class="pct-label" id="pctLabel">0%</div>
+
+      </div>
+
+      <p class="status-text" id="statusText">Memuat halaman...</p>
+    </div>
+  <div id="main-content">
 
 <body>
   <!-- NAVBAR -->

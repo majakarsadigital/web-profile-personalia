@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Screen</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0e1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    .loader-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* ── Circle ── */
+    .circle-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .water-clip {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .water-inner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+    }
+
+    .wave-svg {
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: -26px;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .water-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2196f3;
+    }
+
+    /* ── Bubbles ── */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      bottom: 4px;
+      animation: rise linear infinite;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(1); opacity: 0.5; }
+      80%  { opacity: 0.2; }
+      100% { transform: translateY(-220px) scale(0.4); opacity: 0; }
+    }
+
+    /* ── Outer ring ── */
+    .ring-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* ── Logo overlay ── */
+    .logo-wrap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .logo-icon {
+      width: 100px;
+      height: 88px;
+    }
+
+    .logo-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ── Percent label ── */
+    .pct-label {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.05em;
+      z-index: 5;
+      pointer-events: none;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ── Status text ── */
+    .status-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Replay button (shown after done) ── */
+    .replay-btn {
+      display: none;
+      margin-top: 4px;
+      padding: 8px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .replay-btn:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-wrapper">
+
+    <div class="circle-container">
+
+      <!-- Water fill -->
+      <div class="water-clip">
+        <div class="water-inner" id="waterInner">
+          <svg class="wave-svg" id="waveSvg" viewBox="0 0 200 30" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="wavePath" d="M0,15 Q25,0 50,15 T100,15 T150,15 T200,15 L200,30 L0,30 Z" fill="#2196f3"/>
+          </svg>
+          <div class="water-body" id="waterBody"></div>
+          <!-- Bubbles -->
+          <div class="bubble" style="width:6px;height:6px;left:30px;animation-duration:2.0s;animation-delay:0.2s;"></div>
+          <div class="bubble" style="width:4px;height:4px;left:80px;animation-duration:1.6s;animation-delay:0.8s;"></div>
+          <div class="bubble" style="width:8px;height:8px;left:140px;animation-duration:2.3s;animation-delay:0.0s;"></div>
+          <div class="bubble" style="width:5px;height:5px;left:60px;animation-duration:1.8s;animation-delay:1.3s;"></div>
+          <div class="bubble" style="width:7px;height:7px;left:110px;animation-duration:2.1s;animation-delay:0.5s;"></div>
+        </div>
+      </div>
+
+      <!-- Ring border -->
+      <svg class="ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="96" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+      </svg>
+
+      <!-- Logo di tengah -->
+      <div class="logo-wrap">
+        <img class="logo-icon" src="assets/img/logo_majakarsa.png" alt="Logo">
+        <span class="logo-text">MAJAKARSADIGITAL</span>
+      </div>
+
+      <!-- Persentase -->
+      <div class="pct-label" id="pctLabel">0%</div>
+
+    </div>
+
+    <p class="status-text" id="statusText">Memuat halaman...</p>
+    <button class="replay-btn" id="replayBtn" onclick="startFill()">↺ Ulangi</button>
+
+  </div>
+
+  <script>
+    const waterInner = document.getElementById('waterInner');
+    const waterBody  = document.getElementById('waterBody');
+    const wavePath   = document.getElementById('wavePath');
+    const pctLabel   = document.getElementById('pctLabel');
+    const statusText = document.getElementById('statusText');
+    const replayBtn  = document.getElementById('replayBtn');
+
+    let animFrame, startTime;
+    const DURATION = 3400;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function getWaveD(pct, ts) {
+      const amp    = (pct < 5 || pct > 95) ? 3 : 9;
+      const speed  = 0.0016;
+      const offset = ts * speed;
+      let pts = [];
+      for (let x = 0; x <= 200; x += 10) {
+        const y = 15 + amp * Math.sin((x / 50) * Math.PI * 2 + offset);
+        pts.push([x, y]);
+      }
+      let d = `M${pts[0][0]},${pts[0][1]}`;
+      for (let i = 1; i < pts.length; i++) {
+        const [px, py] = pts[i - 1];
+        const [cx, cy] = pts[i];
+        d += ` Q${(px + cx) / 2},${(py + cy) / 2} ${cx},${cy}`;
+      }
+      d += ' L200,30 L0,30 Z';
+      return d;
+    }
+
+    function setColor(pct) {
+      let r, g, b;
+      if (pct < 50) {
+        const t = pct / 50;
+        r = Math.round(33  + t * (2   - 33));
+        g = Math.round(150 + t * (119 - 150));
+        b = Math.round(243 + t * (182 - 243));
+      } else {
+        const t = (pct - 50) / 50;
+        r = Math.round(2  + t * (13  - 2));
+        g = Math.round(119 + t * (71 - 119));
+        b = Math.round(182 + t * (161 - 182));
+      }
+      const c = `rgb(${r},${g},${b})`;
+      wavePath.setAttribute('fill', c);
+      waterBody.style.background = c;
+    }
+
+    function startFill() {
+      cancelAnimationFrame(animFrame);
+      replayBtn.style.display = 'none';
+      statusText.textContent  = 'Memuat halaman...';
+      waterInner.style.height = '0%';
+      pctLabel.textContent    = '0%';
+      startTime = null;
+
+      function tick(ts) {
+        if (!startTime) startTime = ts;
+        const raw = Math.min((ts - startTime) / DURATION, 1);
+        const pct = Math.round(easeInOut(raw) * 100);
+
+        waterInner.style.height = pct + '%';
+        pctLabel.textContent    = pct + '%';
+        wavePath.setAttribute('d', getWaveD(pct, ts));
+        setColor(pct);
+
+        if (raw < 1) {
+          animFrame = requestAnimationFrame(tick);
+        } else {
+          pctLabel.textContent   = '100%';
+          statusText.textContent = 'Selesai!';
+          replayBtn.style.display = 'inline-block';
+        }
+      }
+
+      animFrame = requestAnimationFrame(tick);
+    }
+
+    startFill();
+  </script>
+</body>
+</html>
